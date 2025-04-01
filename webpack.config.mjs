@@ -34,6 +34,9 @@ const copyFolders = (folders) => {
   });
 };
 
+/**
+ *
+ */
 export default async (env, { mode }) => {
   const isDev = mode === "development";
   return {
@@ -41,7 +44,7 @@ export default async (env, { mode }) => {
     entry: path.join(appDir, "app.ts"),
     output: {
       path: buildDir,
-      filename: "js/[name].ts",
+      filename: "ts/[name].ts",
       clean: true,
     },
     devServer: {
@@ -54,40 +57,34 @@ export default async (env, { mode }) => {
       hot: true,
       watchFiles: [
         "src/**/*.js",
-        "src/**/*.css",
+        "src/**/*.ts",
+        "src/**/*.scss",
         "src/**/*.html",
         "src/**/*.json",
       ],
     },
     module: {
       rules: [
+        // {
+        //   test: /\.js$/, // Для всех .js файлов
+        //   exclude: /node_modules/, // Игнорируем node_modules
+        //   use: {
+        //     loader: "babel-loader", // Используем babel-loader
+        //   },
+        // },
         {
-          test: /\.js$/, // Для всех .js файлов
-          exclude: /node_modules/, // Игнорируем node_modules
+          test: /\.ts$/,
+          exclude: /node_modules/,
           use: {
-            loader: "babel-loader", // Используем babel-loader
-          },
-        },
-        {
-          test: /\.ts$/, // Для всех .ts файлов
-          exclude: /node_modules/, // Игнорируем node_modules
-          use: {
-            loader: "babel-loader", // Используем babel-loader
-          },
-        },
-        {
-          test: /\.(css|scss)$/,
-          use: [
-            isDev ? "style-loader" : MiniCssExtractPlugin.loader,
-            {
-              loader: "css-loader",
-              options: {
-                importLoaders: 1,
-                sourceMap: isDev ? true : false,
-              },
+            loader: "babel-loader",
+            options: {
+              presets: ["@babel/preset-env", "@babel/preset-typescript"],
             },
-            "sass-loader",
-          ],
+          },
+        },
+        {
+          test: /\.(scss|css)$/,
+          use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
         },
       ],
     },
@@ -98,7 +95,7 @@ export default async (env, { mode }) => {
         template: path.join(pagesDir, "index.ts"),
       }),
       new MiniCssExtractPlugin({
-        filename: "styles/[name][hash].css",
+        filename: "styles/[name].[contenthash].css",
       }),
       new webpack.DefinePlugin({
         "process.env.API_URL": JSON.stringify(env.API_URL),
@@ -116,7 +113,7 @@ export default async (env, { mode }) => {
         "#widgets": path.resolve(__dirname, "src/widgets"),
         "#app": path.resolve(__dirname, "src/app"),
       },
-      extensions: [".js", ".scss", ".ts"],
+      extensions: [".js", ".scss", ".ts", ".css"],
     },
     optimization: {
       minimize: !isDev, //В режиме продакшена

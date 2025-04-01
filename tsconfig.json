@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "ES2017",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "paths": {
+      "#shared/*": ["src/shared/*"],
+      "#entities/*": ["src/entities/*"],
+      "#features/*": ["src/features/*"],
+      "#pages/*": ["src/pages/*"],
+      "#widgets/*": ["src/widgets/*"],
+      "#app/*": ["src/app/*"],
+      "#assets/*": ["public/assets/*"],
+      "#fonts/*": ["public/fonts/*"]
+    },
+    "allowSyntheticDefaultImports": true,
+    "noEmit": false,
+    "declaration": true,
+    "experimentalDecorators": true,
+    "emitDeclarationOnly": true,
+    "allowImportingTsExtensions": true,
+  },
+  "include": ["src"]
+}

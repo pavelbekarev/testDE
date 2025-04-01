@@ -1,3 +1,5 @@
+import { Title } from "#shared/ui/Title";
+
 const IndexPage = () => `
   <!DOCTYPE html>
   <html lang="en">
@@ -11,6 +13,7 @@ const IndexPage = () => `
       </header>
       <main class="container">
         <h1>Hello</h1>
+        ${Title("Привет")}
       </main>
     </body>
   </html>
