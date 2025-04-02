@@ -16,13 +16,11 @@ const publicDir = path.resolve(__dirname, "./public");
 const appDir = path.resolve(__dirname, "./src/app");
 const pagesDir = path.resolve(__dirname, "./src/pages");
 
-const folders = ["assets", "fonts"];
-
+const folders = ["fonts", "assets"];
 const copyFolders = (folders) => {
   return folders.map((folder) => {
     const fromPath = path.resolve(publicDir, `./${folder}`);
     const toPath = path.resolve(buildDir, `./${folder}`);
-
     if (!fs.existsSync(fromPath)) {
       console.debug(`Source folder: ${fromPath} does not exist`);
     }
@@ -44,7 +42,7 @@ export default async (env, { mode }) => {
     entry: path.join(appDir, "app.ts"),
     output: {
       path: buildDir,
-      filename: "ts/[name].ts",
+      filename: "js/[name].js",
       clean: true,
     },
     devServer: {
@@ -65,15 +63,12 @@ export default async (env, { mode }) => {
     },
     module: {
       rules: [
-        // {
-        //   test: /\.js$/, // Для всех .js файлов
-        //   exclude: /node_modules/, // Игнорируем node_modules
-        //   use: {
-        //     loader: "babel-loader", // Используем babel-loader
-        //   },
-        // },
         {
-          test: /\.ts$/,
+          test: /\.(jpg|png|svg|jpeg|gif)$/,
+          type: "asset/resource",
+        },
+        {
+          test: /\.(ts)$/,
           exclude: /node_modules/,
           use: {
             loader: "babel-loader",
@@ -83,19 +78,41 @@ export default async (env, { mode }) => {
           },
         },
         {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: "babel-loader",
+          },
+        },
+        {
           test: /\.(scss|css)$/,
-          use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+          use: [
+            isDev ? "style-loader" : MiniCssExtractPlugin.loader,
+            {
+              loader: "css-loader",
+              options: {
+                importLoaders: 2,
+                sourceMap: isDev,
+              },
+            },
+            {
+              loader: "sass-loader",
+              options: {
+                sourceMap: isDev,
+              },
+            },
+          ],
         },
       ],
     },
     plugins: [
-      // формируем html при билде
       new HtmlWebpackPlugin({
         filename: "index.html",
-        template: path.join(pagesDir, "index.ts"),
+        template: path.join(pagesDir, "index.ts"), // Убедитесь, что шаблон существует
       }),
       new MiniCssExtractPlugin({
-        filename: "styles/[name].[contenthash].css",
+        filename: "styles/[name][hash].css",
+        ignoreOrder: true,
       }),
       new webpack.DefinePlugin({
         "process.env.API_URL": JSON.stringify(env.API_URL),
@@ -112,15 +129,14 @@ export default async (env, { mode }) => {
         "#pages": path.resolve(__dirname, "src/pages"),
         "#widgets": path.resolve(__dirname, "src/widgets"),
         "#app": path.resolve(__dirname, "src/app"),
+        "#fonts": path.resolve(__dirname, "public/fonts"),
+        "#assets": path.resolve(__dirname, "public/assets"),
       },
-      extensions: [".js", ".scss", ".ts", ".css"],
+      extensions: [".js", ".ts", ".scss", ".css"],
     },
     optimization: {
-      minimize: !isDev, //В режиме продакшена
-      minimizer: [
-        new CssMinimizerPlugin(), //Минификация CSS
-        new TerserPlugin(),
-      ],
+      minimize: !isDev,
+      minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
     },
     devtool: isDev ? "source-map" : false,
   };

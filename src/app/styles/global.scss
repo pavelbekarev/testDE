@@ -8,3 +8,13 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+
+.main {
+  background-color: beige;
+
+  &__cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+}
