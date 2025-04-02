@@ -85,6 +85,13 @@ export default async (env, { mode }) => {
           },
         },
         {
+          test: /\.(woff2?|eot|ttf|otf)$/,
+          type: "asset/resource",
+          generator: {
+            filename: "fonts/[name][ext]",
+          },
+        },
+        {
           test: /\.(scss|css)$/,
           use: [
             isDev ? "style-loader" : MiniCssExtractPlugin.loader,

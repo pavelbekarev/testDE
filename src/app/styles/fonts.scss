@@ -1,0 +1,25 @@
+// @font-face {
+//   font-family: "Gilroy-Semibold";
+//   src: url("#fonts/Gilroy-Semibold.ttf") format("woff2");
+// }
+
+@font-face {
+  font-family: "Gilroy-Regular";
+  src: url("../../../public/fonts/Gilroy-Regular.ttf") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gilroy-Semibold";
+  src: url("../../../public/fonts/Gilroy-SemiBold.ttf") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Galien-Bold";
+  src: url("../../../public/fonts/GallientRegular.ttf") format("woff2");
+}
