@@ -1,0 +1,132 @@
+.footer__wrapper {
+  left: -100px;
+  padding-top: 15.625rem;
+  background-color: var(--colorBlueGray);
+  height: 100%;
+  z-index: -2;
+}
+
+.footer {
+  position: relative;
+  border-radius: 0 30rem 0 0;
+  width: 100%;
+  height: 100%;
+  left: -100px;
+  padding: 1rem 0;
+  background-color: var(--colorYaleBlue);
+  padding-bottom: 12rem;
+
+  &__topContent {
+    position: relative;
+    left: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 12rem;
+
+    &__left {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+
+      &__title {
+        font-size: 4.5rem;
+        width: 35%;
+        color: #fff;
+        font-family: "Gilroy-Semibold";
+      }
+
+      &__description {
+        font-size: 2rem;
+        width: 45%;
+        color: rgba(255, 255, 255, 0.6);
+      }
+    }
+
+    &__right {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      &__button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 2rem 5rem;
+        border-radius: 1.25rem;
+        background-color: var(--colorBlueGray);
+        font-size: 2rem;
+        color: #fff;
+        font-family: "Gilroy-Regular";
+      }
+    }
+  }
+
+  &__hr {
+    position: absolute;
+    left: 0;
+    width: 90%;
+    margin-bottom: 12rem;
+  }
+
+  &__bottomContent {
+    position: relative;
+    left: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding-top: 12rem;
+
+    &__content {
+      display: flex;
+      flex-direction: row;
+      &__column {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        position: relative;
+        left: -50px;
+
+        &__item {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 3rem;
+
+          &:first-child {
+            margin-bottom: 4rem;
+          }
+
+          &:nth-child(2) {
+            width: 60%;
+          }
+
+          &__img {
+          }
+
+          &__title {
+            color: #fff;
+            font-size: 2.5rem;
+            font-family: "Gilroy-Semibold";
+          }
+
+          &__text {
+            color: #fff;
+            font-size: 2rem;
+            font-family: "Gilroy-Semibold";
+          }
+        }
+      }
+    }
+
+    &__signature {
+      margin-top: 8rem;
+      font-size: 2rem;
+      color: rgba(255, 255, 255, 0.4);
+      font-family: "Gilroy-Semibold";
+    }
+  }
+}

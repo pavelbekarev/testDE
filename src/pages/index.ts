@@ -1,8 +1,8 @@
-import { defaultCardConfig } from "#shared/config/defaultCardConfig";
-import { ICard } from "#shared/interface/ICard";
-import { Card } from "#shared/ui/Card";
+import { ClientsGrid } from "#shared/ui/ClientsGrid";
+import { Footer } from "#shared/ui/Footer";
 import { Header } from "#shared/ui/Header";
-import { Title } from "#shared/ui/Title";
+import { OurClient } from "#shared/ui/OurClient";
+import { WhatWeDo } from "#shared/ui/WhatWeDo/ui";
 
 /**
  * Верстка главной страницы
@@ -20,12 +20,15 @@ const IndexPage = (): string => {
       <body>
         ${Header()}
         <main class="main">
-          <h1>Hello</h1>
-          ${Title("Привет")}
-          <div class="main__cards">
-            ${defaultCardConfig.map((item: ICard) => Card({ info: item })).join("")}
+          ${WhatWeDo()}
+          <div class="ourClient__wrapper">
+            ${OurClient()}
+            ${ClientsGrid()}
           </div>
         </main>
+        <div class="footer__wrapper">
+          ${Footer()}
+        </div>
       </body>
     </html>
   `;

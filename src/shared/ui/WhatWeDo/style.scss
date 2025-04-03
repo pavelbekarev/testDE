@@ -1,0 +1,23 @@
+.whatWeDo {
+  margin-top: 30rem;
+  display: flex;
+  flex-direction: row;
+  min-height: 200vh;
+
+  &__title {
+    font-size: 4.5rem;
+    color: var(--colorLapisLazuli);
+    width: 40%;
+    margin: 0;
+  }
+
+  &__cards {
+    position: absolute;
+    margin-right: 26.625rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 100px;
+  }
+}

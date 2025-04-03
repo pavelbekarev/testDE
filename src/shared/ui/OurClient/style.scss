@@ -1,0 +1,30 @@
+.ourClient {
+  &__wrapper {
+    padding-top: 12rem;
+    height: 100%;
+    width: 100%;
+    border-radius: 30rem 0 0 0;
+    background-color: var(--colorBlueGray);
+  }
+
+  &__textContent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    &__title {
+      color: #fff;
+      font-family: "Gilroy-Semibold";
+      width: 30%;
+      font-size: 4.5rem;
+    }
+
+    &__description {
+      color: #fff;
+      opacity: 0.6;
+      width: 60rem;
+      font-size: 2rem;
+    }
+  }
+}
