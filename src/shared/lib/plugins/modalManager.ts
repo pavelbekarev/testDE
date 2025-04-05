@@ -9,18 +9,15 @@ export class ModalManager {
   constructor(config = {}) {
     this.config = config;
     ModalManager.instance = this;
+    this.bindEvents();
   }
 
   private bindEvents() {
-    const openModalButton = document.querySelector(this.selectors.openModalBtn);
-    const modalInstanceNode = document.querySelector("#modalInstance");
-
     document.addEventListener("click", (e) => {
-      if (e.target === openModalButton) console.debug("!!!");
+      const parent = e.target.closest("#closeIcon");
 
-      if (e.target === modalInstanceNode) {
-        console.debug("???");
-        modalInstanceNode.remove();
+      if (parent) {
+        this.closeModal();
       }
     });
   }
@@ -38,6 +35,9 @@ export class ModalManager {
     modalInstanceNode.setAttribute("id", "modalInstance");
     modalInstanceNode.classList.add("modalInstance");
 
+    // отключаю скроллинг при открытии модалки
+    document.querySelector("body").classList.add("modal-active");
+
     modalInstanceNode.innerHTML = component;
 
     document.querySelector("body").appendChild(modalInstanceNode);
@@ -48,6 +48,7 @@ export class ModalManager {
    */
   closeModal() {
     document.querySelector("#modalInstance").remove();
+    document.querySelector("body").classList.remove("modal-active");
   }
 
   static getInstance(config = {}) {

@@ -77,8 +77,9 @@ export class FormValidator {
      * Пример данных:
      *  {fullname: 'fsadfsa', email: 'example@gmail.com', message: 'fsdafasdfs'}
      */
-    console.debug(this.dataForSend);
     await api.post("users", this.dataForSend);
+    document.querySelector("#modalInstance").remove();
+    document.querySelector("body").classList.remove("modal-active");
   }
 
   private showErrors(): void {

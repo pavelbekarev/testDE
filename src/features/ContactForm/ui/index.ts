@@ -1,3 +1,4 @@
+import closeIcon from "#assets/x-lg.svg";
 import { IContactForm } from "#shared/interface/IContactForm";
 
 /**
@@ -29,6 +30,7 @@ export const ContactForm = (cfg: IContactForm[]): string => {
           .join("")}
       </div>
       <a data-js-submit-btn={""} class="contactForm__submitBtn">SUBMIT</a>
+      <img id="closeIcon" class="contactForm__closeIcon" src="${closeIcon}" alt="Крестик для закрытия модального окна" />
     </form>
   `;
 };

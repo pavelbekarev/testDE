@@ -15,7 +15,7 @@ export class ContactFormModel {
 
   constructor() {
     this.bindEvents();
-    this.f();
+    this.validateForm();
   }
 
   private handleClick(e) {
@@ -25,20 +25,20 @@ export class ContactFormModel {
 
     try {
       ModalManager.getInstance().open(ContactForm(DefaultContactFormConfig));
-      this.f();
+      this.validateForm();
     } catch (error) {
       console.error(error);
     }
   }
 
-  private f() {
+  private validateForm() {
     const formNode = document.querySelector(this.attrs.form);
 
     if (formNode instanceof HTMLFormElement) {
       new FormValidator({
         form: formNode,
         rules: {
-          name: (value) => (value.length === 0 ? "Введите имя" : null),
+          fullname: (value) => (value.length === 0 ? "Введите имя" : null),
           email: (value) =>
             !/^\S+@\S+\.\S+$/.test(value) ? "Введите корректный email" : null,
           message: (value) =>
