@@ -62,3 +62,19 @@
     }
   }
 }
+
+@media (max-width: 560px) {
+  .contactForm {
+    width: 70%;
+
+    &__submitBtn {
+      padding: 2.875rem 10rem;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .contactForm {
+    width: auto;
+  }
+}

@@ -1,4 +1,6 @@
 .ourClient {
+  --ourClientTitleFontSize: 4.5rem;
+  --ourClientDescriptionFontSize: 2rem;
   &__wrapper {
     padding-top: 12rem;
     height: 100%;
@@ -17,14 +19,70 @@
       color: #fff;
       font-family: "Gilroy-Semibold";
       width: 30%;
-      font-size: 4.5rem;
+      font-size: var(--ourClientTitleFontSize);
     }
 
     &__description {
       color: #fff;
       opacity: 0.6;
       width: 60rem;
-      font-size: 2rem;
+      font-size: var(--ourClientDescriptionFontSize);
+    }
+  }
+}
+
+@media (max-width: 1050px) {
+  .ourClient {
+    &__textContent {
+      justify-content: space-evenly;
+
+      &__title {
+      }
+
+      &__description {
+        width: 40%;
+      }
+    }
+  }
+}
+
+@media (max-width: 687px) {
+  .ourClient__wrapper {
+    margin-top: 100%;
+  }
+}
+
+@media (max-width: 450px) {
+  .ourClient__wrapper {
+    margin-top: 150%;
+  }
+
+  .ourClient {
+    --ourClientTitleFontSize: 4rem;
+
+    &__textContent {
+      justify-content: space-around;
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .ourClient {
+    --ourClientDescriptionFontSize: 1.75rem;
+
+    &__textContent {
+      flex-direction: column;
+      align-items: flex-end;
+      padding: 0 2rem;
+      text-align: right;
+
+      &__title {
+        width: 80%;
+      }
+
+      &__description {
+        width: 80%;
+      }
     }
   }
 }

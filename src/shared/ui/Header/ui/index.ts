@@ -11,7 +11,7 @@ export const Header = (): string => {
     <header class="header">
       <div class="header__navigation">
         <img class="header__navigation__logoImg" src=${logo} alt="Логотип" />
-        ${IconBurger()}
+        <a href="">${IconBurger("var(--colorYaleBlue)")}</a>
       </div>
       <div class="container header__content">
         <div class="header__content__textContent">

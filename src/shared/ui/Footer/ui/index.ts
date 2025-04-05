@@ -26,7 +26,7 @@ export const Footer = (): string => {
 
       <div class="container footer__bottomContent">
         <div class="footer__bottomContent__content">
-          <div class="container footer__bottomContent__content__column">
+          <div class="footer__bottomContent__content__column">
             <div class="footer__bottomContent__content__column__item">
               <img class="footer__bottomContent__content__column__item__img" src=${logo} alt="Логотип" />
               <span class="footer__bottomContent__content__column__item__title">Afrianska</span>
@@ -45,39 +45,39 @@ export const Footer = (): string => {
             </div>
           </div>
           
-          <div class="container footer__bottomContent__content__column">
+          <div class="footer__bottomContent__content__column">
             <div class="footer__bottomContent__content__column__item">
               <span class="footer__bottomContent__content__column__item__title">About US</span>
             </div>
             <div class="footer__bottomContent__content__column__item">
-              <span class="footer__bottomContent__content__column__item__text">About</span>
+              <a href="/" class="footer__bottomContent__content__column__item__text">About</a>
             </div>
             <div class="footer__bottomContent__content__column__item">
-              <span class="footer__bottomContent__content__column__item__text">What We Do</span>
+              <a href="/" class="footer__bottomContent__content__column__item__text">What We Do</a>
             </div>
             <div class="footer__bottomContent__content__column__item">
-              <span class="footer__bottomContent__content__column__item__text">Project</span>
+              <a href="/" class="footer__bottomContent__content__column__item__text">Project</a>
             </div>
             <div class="footer__bottomContent__content__column__item">
-              <span class="footer__bottomContent__content__column__item__text">How It Work With Us</span>
+              <a href="/" class="footer__bottomContent__content__column__item__text">How It Work With Us</a>
             </div>
           </div>
 
-          <div class="container footer__bottomContent__content__column">
+          <div class="footer__bottomContent__content__column">
             <div class="footer__bottomContent__content__column__item">
               <span class="footer__bottomContent__content__column__item__title">Follow Us</span>
             </div>
             <div class="footer__bottomContent__content__column__item">
-              <span class="footer__bottomContent__content__column__item__text">Instagram</span>
+              <a href="/" class="footer__bottomContent__content__column__item__text">Instagram</a>
             </div>
             <div class="footer__bottomContent__content__column__item">
-              <span class="footer__bottomContent__content__column__item__text">Facebook</span>
+              <a href="/" class="footer__bottomContent__content__column__item__text">Facebook</a>
             </div>
             <div class="footer__bottomContent__content__column__item">
-              <span class="footer__bottomContent__content__column__item__text">LinkedIn</span>
+              <a href="/" class="footer__bottomContent__content__column__item__text">LinkedIn</a>
             </div>
             <div class="footer__bottomContent__content__column__item">
-              <span class="footer__bottomContent__content__column__item__text">Youtube</span>
+              <a href="/" class="footer__bottomContent__content__column__item__text">Youtube</a>
             </div>
           </div>
         </div>

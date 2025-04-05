@@ -1,9 +1,15 @@
 .card {
   --cardTitleColor: var(--colorYaleBlue);
   --cardDescriptionColor: var(--colorBlueGray);
+  --cardTitleFontSize: 2.5rem;
+  --cardDescriptionFontSize: 2rem;
+  --cardImgWidth: 60%;
+  --cardImgHeight: 100%;
+  --cardWidth: 37.5rem;
+  --cardButtonWidth: 40%;
   display: flex;
   flex-direction: column;
-  width: 37.5rem;
+  width: var(--cardWidth);
   height: 100%;
   margin: 0 2rem;
   padding: 6rem;
@@ -21,31 +27,65 @@
   }
 
   &__img {
-    width: 80%;
-    height: 100%;
+    width: var(--cardImgWidth);
+    height: var(--cardImgHeight);
     margin: 0 auto;
     margin-bottom: 7rem;
   }
 
   &__title {
-    font-size: 2.5rem;
+    font-size: var(--cardTitleFontSize);
     color: var(--cardTitleColor);
     font-family: "Gilroy-Semibold";
     margin-bottom: 2rem;
   }
 
   &__description {
-    font-size: 2rem;
+    font-size: var(--cardDescriptionFontSize);
     font-family: "Gilroy-Regular";
   }
 
   &__btn {
     display: flex;
     gap: 3rem;
-    width: 40%;
+    width: var(--cardButtonWidth);
     font-size: 1.75rem;
     text-decoration: none;
     color: var(--cardDescriptionColor);
     margin-top: 5rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      transition: all 0.1s ease;
+    }
+  }
+}
+
+@media (max-width: 887px) {
+  .card {
+    --cardButtonWidth: 60%;
+    --cardWidth: 30rem;
+    padding: 6rem 4rem;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-top: 2rem;
+    }
+  }
+}
+
+@media (max-width: 687px) {
+  .card {
+    --cardButtonWidth: 60%;
+    --cardWidth: 30rem;
+    padding: 6rem 4rem;
+
+    &:not(:first-child) {
+      margin-top: 2rem;
+    }
   }
 }

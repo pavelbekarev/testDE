@@ -41,10 +41,36 @@
 
     &:last-child {
       background-color: rgba(30, 62, 102, 0.2);
+      transition: all 0.3s ease;
 
       &:hover {
         cursor: pointer;
         background-color: rgba(30, 62, 102, 0.5);
+        transition: all 0.1s ease;
+      }
+    }
+  }
+}
+
+@media (max-width: 1020px) {
+  .clientsGrid {
+    width: 90%;
+  }
+}
+
+@media (max-width: 610px) {
+  .clientsGrid {
+    grid-template-areas: "item1 item2";
+
+    &__client {
+      &:nth-child(2),
+      &:nth-child(6) {
+        border: none;
+        border-bottom: 1px solid var(--clientsGridBorderColor);
+      }
+
+      &:nth-child(5) {
+        border-bottom: 1px solid var(--clientsGridBorderColor);
       }
     }
   }

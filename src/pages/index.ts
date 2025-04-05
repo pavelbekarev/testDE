@@ -21,10 +21,10 @@ const IndexPage = (): string => {
         ${Header()}
         <main class="main">
           ${WhatWeDo()}
-          <div class="ourClient__wrapper">
+          <section class="ourClient__wrapper">
             ${OurClient()}
             ${ClientsGrid()}
-          </div>
+          </section>
         </main>
         <div class="footer__wrapper">
           ${Footer()}

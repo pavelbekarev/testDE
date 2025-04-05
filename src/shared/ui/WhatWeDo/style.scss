@@ -1,11 +1,12 @@
 .whatWeDo {
+  --whatWeDoTitleFontSize: 4.5rem;
   margin-top: 30rem;
   display: flex;
   flex-direction: row;
   min-height: 200vh;
 
   &__title {
-    font-size: 4.5rem;
+    font-size: var(--whatWeDoTitleFontSize);
     color: var(--colorLapisLazuli);
     width: 40%;
     margin: 0;
@@ -19,5 +20,43 @@
     flex-wrap: wrap;
     justify-content: flex-end;
     gap: 100px;
+  }
+}
+
+@media (max-width: 1286px) {
+  .whatWeDo {
+    &__cards {
+      margin-right: 0;
+    }
+  }
+}
+
+@media (max-width: 987px) {
+  .whatWeDo {
+    &__title {
+      padding-left: 2rem;
+    }
+    &__cards {
+      gap: 0;
+    }
+  }
+}
+
+@media (max-width: 887px) {
+  .whatWeDo {
+    --whatWeDoTitleFontSize: 4rem;
+
+    &__title {
+      width: 80%;
+    }
+
+    &__cards {
+      align-items: center;
+      justify-content: center;
+
+      margin-top: 30rem;
+      // flex-wrap: nowrap;
+      width: 100%;
+    }
   }
 }
