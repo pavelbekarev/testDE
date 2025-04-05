@@ -17,7 +17,7 @@ export const Footer = (): string => {
           </span>
         </div>
         <div class="footer__topContent__right">
-          <a class="footer__topContent__right__button">
+          <a data-js-open-modal="" class="footer__topContent__right__button">
             Let’s Talk
           </a>
         </div>

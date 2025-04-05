@@ -1,0 +1,64 @@
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 50rem;
+  margin: 0 auto;
+  margin-top: 2rem;
+  max-height: 80vh;
+  padding: 7rem;
+  border-radius: 1.25rem;
+  background-color: #fff;
+  overflow-y: auto; // Активируем скролл
+
+  &__title {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    font-family: "Gilroy-Semibold";
+    color: var(--colorYaleBlue);
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    &__label {
+      font-size: 2rem;
+      font-family: "Gilroy-Regular";
+      color: rgba(31, 63, 104, 0.8);
+    }
+
+    &__input {
+      font-size: 2rem;
+      font-family: "Gilroy-Regular";
+      padding: 2.875rem 2rem;
+      border: 1px solid var(--colorAzul);
+      border-radius: 1.25rem;
+    }
+  }
+
+  &__submitBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--colorBlueGray);
+    padding: 2.875rem 23rem;
+    font-size: 2rem;
+    font-family: "Gilroy-Semibold";
+    letter-spacing: 2px;
+    color: #fff;
+    border-radius: 1.25rem;
+    margin-top: 9rem;
+    -webkit-box-shadow: 0px 6px 21px 10px rgba(100, 181, 246, 0.4);
+    -moz-box-shadow: 0px 6px 21px 10px rgba(100, 181, 246, 0.4);
+    box-shadow: 0px 6px 21px 10px rgba(100, 181, 246, 0.4);
+
+    &:hover {
+      cursor: pointer;
+      -webkit-box-shadow: 0px 6px 21px 10px rgba(100, 181, 246, 0.6);
+      -moz-box-shadow: 0px 6px 21px 10px rgba(100, 181, 246, 0.6);
+      box-shadow: 0px 6px 21px 10px rgba(100, 181, 246, 0.6);
+    }
+  }
+}
